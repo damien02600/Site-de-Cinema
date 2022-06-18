@@ -9,6 +9,7 @@ class users extends database  // La class dit un users c'est ca.
     public $id = 0;
     public $lastname = '';
     public $firstname = '';
+    public $username = '';
     public $mail = '';
 
   /**
@@ -36,8 +37,8 @@ class users extends database  // La class dit un users c'est ca.
          VALUES (:lastName,:firstName,:username,:mail,:password,2)';
 
          $queryExecute = $this->db->prepare($query);
-         $queryExecute->bindValue(':lastName', $this->lastName, PDO::PARAM_STR);
-         $queryExecute->bindValue(':firstName', $this->firstName, PDO::PARAM_STR);
+         $queryExecute->bindValue(':lastName', $this->lastname, PDO::PARAM_STR);
+         $queryExecute->bindValue(':firstName', $this->firstname, PDO::PARAM_STR);
          $queryExecute->bindValue(':username', $this->username, PDO::PARAM_STR);
          $queryExecute->bindValue('mail', $this->mail, PDO::PARAM_STR);
          $queryExecute->bindValue('password', $this->password, PDO::PARAM_STR);

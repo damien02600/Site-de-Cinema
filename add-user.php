@@ -2,6 +2,7 @@
 session_start();
 require_once 'models/database.php';
 require_once 'models/userModel.php';
+require_once 'config.php';
 require_once 'controllers/add-userController.php';
 require_once 'includes/header.php';
 ?>
@@ -12,23 +13,38 @@ require_once 'includes/header.php';
 <form method="POST" action="">
 
     <div class="form-floating mb-3">
-        <input name="lastname" class="form-control" id="lastname" value="<?= @$_POST['lastname'] ?>" type="text" placeholder="Votre nom"/>
+    <input name="lastname" class="form-control  <?= !isset($formErrors['lastname']) ?: 'is-invalid' ?>" id="lastname" value="<?= @$_POST['lastname'] ?>" type="text" placeholder="Votre nom"/>
         <label for="lastname" class="form-label">Votre nom :</label>
+        <small class="invalid-feedback">
+            <p><?= @$formErrors['lastname'] ?></p>
+            <p><?= INSTRUCTIONS_LASTNAME ?></p>
+        </small>
     </div>
 
     <div class="form-floating mb-3">
-        <input name="firstname" class="form-control" id="firstname" value="<?= @$_POST['firstname'] ?>" type="text" placeholder="Votre prénom" />
-        <label for="firstname" class="form-label">Votre prénom :</label>
+    <input name="firstname" class="form-control  <?= !isset($formErrors['firstname']) ?: 'is-invalid' ?>" id="firstname" value="<?= @$_POST['firstname'] ?>" type="text" placeholder="Votre firstname"/>
+        <label for="firstname" class="form-label">Votre nom :</label>
+        <small class="invalid-feedback">
+            <p><?= @$formErrors['firstname'] ?></p>
+            <p><?= INSTRUCTIONS_FIRSTNAME ?></p>
+        </small>
     </div>
 
     <div class="form-floating mb-3">
-        <input name="mail" class="form-control" id="mail" value="<?= @$_POST['mail'] ?>" type="email" placeholder="Votre Email"  />
+    <input name="mail" class="form-control <?= !isset($formErrors['mail']) ?: 'is-invalid' ?>" id="mail" value="<?= @$_POST['mail'] ?>" type="email" placeholder="Votre Email" />
         <label for="mail">Votre Email</label>
+        <small class="invalid-feedback">
+            <p><?= @$formErrors['mail'] ?></p>
+        </small>
     </div>
 
     <div class="form-floating mb-3">
-        <input name="username" class="form-control" id="username" value="<?= @$_POST['username'] ?>" type="text" placeholder="Votre pseudo" />
+    <input name="username" class="form-control <?= !isset($formErrors['username']) ?: 'is-invalid' ?>" id="username" value="<?= @$_POST['username'] ?>" type="text" placeholder="Votre pseudo" />
         <label for="username" class="form-label">Votre pseudo :</label>
+        <small class="invalid-feedback">
+            <p><?= @$formErrors['username'] ?></p>
+            <p><?= INSTRUCTIONS_USERNAME ?></p>
+        </small>
     </div>
 
     <div class="form-floating mb-3">
