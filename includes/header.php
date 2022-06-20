@@ -13,6 +13,7 @@
     <ul>
       <li><a href="home.php">Accueil</a></li>
       <li><a href="add-user.php">Inscription</a></li>
+      <li><a href="login.php">Connexion</a></li>
     </ul>
   </nav>
 </header> 
