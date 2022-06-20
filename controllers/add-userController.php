@@ -77,6 +77,8 @@ if (count($_POST) > 0) {  // Si il y a au moins un champs du tableau POST qui es
 
     if (count($formErrors) == 0) {
     $user->addUser();
+    header('location: login.php');
+    exit;
 } 
 
 }

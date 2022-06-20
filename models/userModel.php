@@ -120,4 +120,16 @@ return $queryResult;
       $queryExecute->bindValue(':id', $this->id, PDO::PARAM_INT);
       return $queryExecute->execute();
   }
+
+        //  deletUser() permet de supprimer un utilisateur 
+        public function deleteUser()
+        {
+            // Déclaration de la méthode qui va nous permettre de supprimer un utilisateur.
+            $query = 'DELETE FROM  mk9h8_users
+               WHERE id = :id';
+    
+            $queryExecute = $this->db->prepare($query);
+            $queryExecute->bindValue(':id', $this->id, PDO::PARAM_INT);
+            return $queryExecute->execute();
+        }
 } 
