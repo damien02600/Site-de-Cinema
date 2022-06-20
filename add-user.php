@@ -23,7 +23,7 @@ require_once 'includes/header.php';
 
     <div class="form-floating mb-3">
     <input name="firstname" class="form-control  <?= !isset($formErrors['firstname']) ?: 'is-invalid' ?>" id="firstname" value="<?= @$_POST['firstname'] ?>" type="text" placeholder="Votre firstname"/>
-        <label for="firstname" class="form-label">Votre nom :</label>
+        <label for="firstname" class="form-label">Votre Prénom :</label>
         <small class="invalid-feedback">
             <p><?= @$formErrors['firstname'] ?></p>
             <p><?= INSTRUCTIONS_FIRSTNAME ?></p>

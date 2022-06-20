@@ -77,4 +77,32 @@ class users extends database  // La class dit un users c'est ca.
       return $queryExecute->fetch(PDO::FETCH_OBJ);
     }
     
+      // Connexion
+  public function getUserByUsername()
+  {
+    $query = 'SELECT id, id_roles
+        FROM mk9h8_users
+        WHERE username = :username';
+    $queryExecute = $this->db->prepare($query);
+    $queryExecute->bindValue(':username', $this->username, PDO::PARAM_STR);
+    $queryExecute->execute();
+    $queryResult = $queryExecute->fetch(PDO::FETCH_OBJ);
+    $this->id = $queryResult->id;
+    $this->id_roles = $queryResult->id_roles;
+    return true;
+  }
+
+  // Affiche les infos de l'utilisateur dans la page profil.php
+  public function getUserById(){
+    $query = 'SELECT lastname, firstname, username, mail
+    FROM mk9h8_users
+    WHERE id = :id';
+$queryExecute = $this->db->prepare($query);
+// Mise en place du marqueur nominatif
+$queryExecute->bindValue(':id', $this->id, PDO::PARAM_INT);
+$queryExecute->execute();
+// On retourne les informations correspondante à l'id users
+$queryResult = $queryExecute->fetch(PDO::FETCH_OBJ);
+return $queryResult;
+  }
 } 

@@ -2,7 +2,7 @@
 session_start();
 require_once 'models/database.php';
 require_once 'models/userModel.php';
-
+require_once 'controllers/loginController.php';
 require_once 'includes/header.php';
 ?>
 
