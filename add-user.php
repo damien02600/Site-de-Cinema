@@ -48,13 +48,17 @@ require_once 'includes/header.php';
     </div>
 
     <div class="form-floating mb-3">
-        <input name="password" class="form-control" id="password" <?= @$_POST['password'] ?> type="password" placeholder="Votre mot de passe" />
+    <div class="form-floating mb-3">
+        <input name="password" class="form-control <?= !isset($formErrors['password']) ?: 'is-invalid' ?>" id="password" value="<?= @$_POST['password'] ?>" type="password" placeholder="Votre mot de passe" />
         <label for="password">Votre mot de passe</label>
+        <small class="invalid-feedback"><?= @$formErrors['password'] ?></small>
+    </div>
     </div>
 
     <div class="form-floating mb-3">
-        <input name="confirmPassword" class="form-control" id="confirmPassword" value="<?= @$_POST['confirmPassword'] ?>" type="password" placeholder="La confirmation de votre mot de passe"/>
+    <input name="confirmPassword" class="form-control  <?= !isset($formErrors['confirmPassword']) ?: 'is-invalid' ?>" id="confirmPassword" value="<?= @$_POST['confirmPassword'] ?>" type="password" placeholder="La confirmation de votre mot de passe" />
         <label for="confirmPassword" class="form-label">Confirmation de votre mot de passe</label>
+        <small class="invalid-feedback"><?= @$formErrors['confirmPassword'] ?></small>
     </div>
     <input type="submit" class="btn btn-success" name="formInscription" value="Envoyer" />
 </form>

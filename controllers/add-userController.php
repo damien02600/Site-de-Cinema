@@ -30,15 +30,17 @@ if (count($_POST) > 0) {  // Si il y a au moins un champs du tableau POST qui es
         $formErrors['firstName'] = EMPTY_FIRSTNAME;
     }
 
-    if (!empty($_POST['username'])) {
-        if (preg_match($regex['username'], $_POST['username'])) {
-
-            $user->username = $_POST['username'];
+    if (!empty($_POST['username'])) { // Si la variable  'username' n'est pas vide 
+        if (preg_match($regex['username'], $_POST['username'])) { // Si la valeur correspond à la regex  
+            $user->username = $_POST['username'];  // Attribut le résultat du champ user dans username
+            if ($user->checkIfUserExists() > 0) {  // Je vérifie si le pseudo existe déja 
+                $formErrors['username'] = INVALID_USERNAME; // Si erreur 'Le pseudo n\'est pas correcte'
+            }
         } else {
-            $formErrors['username'] = INVALID_USERNAME;
+            $formErrors['username'] = EMPTY_USERNAME; // Sinon 'Le pseudo est obligatoire'
         }
     } else {
-        $formErrors['username'] = EMPTY_USERNAME;
+        $formErrors['username'] = 'Le nom d\'utilisateur doit faire entre 3 et 50 caractère et ne peut contenir que des chiffres et des lettres.';
     }
 
 
@@ -52,8 +54,23 @@ if (count($_POST) > 0) {  // Si il y a au moins un champs du tableau POST qui es
         $formErrors['mail'] = EMPTY_MAIL;
     }
 
-    if (!empty($_POST['password'])) {
-        $user->password = $_POST['password'];
+
+    // isset détermine si une variable est déclarée et est différente de null
+    if (!isset($_POST['password']) || empty($_POST['password'])) {
+        $formErrors['password'] = 'Le mot de passe est obligatoire';
+    }
+
+    if (!isset($_POST['confirmPassword']) || empty($_POST['confirmPassword'])) {
+        $formErrors['confirmPassword'] = 'Le mot de passe est obligatoire';
+    }
+
+
+    if (!isset($formErrors['password']) && !isset($formErrors['confirmPassword'])) {  // isset détermine si une variable est déclarée et est différente de null
+        if ($_POST['password'] == $_POST['confirmPassword']) {
+            $user->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        } else {
+            $formErrors['password'] = $formErrors['confirmPassword'] = 'Les mots de passe ne sont pas identiques.';
+        }
     }
 
 
