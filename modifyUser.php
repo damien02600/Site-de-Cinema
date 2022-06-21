@@ -63,6 +63,7 @@ require_once 'includes/header.php';
         <label for="confirmPassword" class="form-label">Confirmation de votre mot de passe</label>
         <small class="invalid-feedback"><?= @$formErrors['confirmPassword'] ?></small>
     </div>
+    
 <input type="submit" class="btn btn-success" value="Valider" />
 </form>
     </div>

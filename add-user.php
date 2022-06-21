@@ -48,11 +48,9 @@ require_once 'includes/header.php';
     </div>
 
     <div class="form-floating mb-3">
-    <div class="form-floating mb-3">
         <input name="password" class="form-control <?= !isset($formErrors['password']) ?: 'is-invalid' ?>" id="password" value="<?= @$_POST['password'] ?>" type="password" placeholder="Votre mot de passe" />
         <label for="password">Votre mot de passe</label>
         <small class="invalid-feedback"><?= @$formErrors['password'] ?></small>
-    </div>
     </div>
 
     <div class="form-floating mb-3">

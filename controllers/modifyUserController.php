@@ -54,6 +54,15 @@ var_dump($_POST);
         $formErrors['mail'] = EMPTY_MAIL;
     }
 
+    if (!isset($formErrors['password']) && !isset($formErrors['confirmPassword'])) {  // isset détermine si une variable est déclarée et est différente de null
+        if ($_POST['password'] == $_POST['confirmPassword']) {
+            $user->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        } else {
+            $formErrors['password'] = $formErrors['confirmPassword'] = 'Les mots de passe ne sont pas identiques.';
+        }
+    }
+    
+
     if (count($formErrors) == 0) { // Si il n'y a pas d'erreur 
     if (!empty($_GET['id'])) { //  si l'identifiant n'est pas vide (ex : index.php?id=12) alors l'action est effectuée
         $user->id = $_GET['id']; // Je vais chercher l'id de l'utilisateur 

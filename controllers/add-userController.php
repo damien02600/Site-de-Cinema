@@ -19,6 +19,7 @@ if (count($_POST) > 0) {  // Si il y a au moins un champs du tableau POST qui es
         $formErrors['lastname'] = EMPTY_LASTNAME;
     } 
 
+
     if (!empty($_POST['firstname'])) {
         if (preg_match($regex['firstname'], $_POST['firstname'])) {
 
@@ -27,8 +28,9 @@ if (count($_POST) > 0) {  // Si il y a au moins un champs du tableau POST qui es
             $formErrors['firstname'] = INVALID_FIRSTNAME;
         }
     } else {
-        $formErrors['firstName'] = EMPTY_FIRSTNAME;
+        $formErrors['firstname'] = EMPTY_FIRSTNAME;
     }
+
 
     if (!empty($_POST['username'])) { // Si la variable  'username' n'est pas vide 
         if (preg_match($regex['username'], $_POST['username'])) { // Si la valeur correspond à la regex  

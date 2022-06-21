@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
   <title>Page d'accueil</title>
 </head>
+<body>
 <header>
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
