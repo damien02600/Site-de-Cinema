@@ -25,7 +25,7 @@ require_once 'includes/header.php';
             <p><?= INSTRUCTIONS_LASTNAME ?></p>
         </small>
     </div>
-<br>
+
 <div class="form-floating mb-3">
     <input name="firstname" class="form-control <?= !isset($formErrors['firstname']) ?: 'is-invalid' ?>" id="firstname" value="<?= isset($profilDetail)? $profilDetail->firstname : @$_POST['firstname']  ?>" type="text" placeholder="Votre prénom" />
     <label for="firstname" class="form-label">Votre prénom :</label>
@@ -34,7 +34,7 @@ require_once 'includes/header.php';
             <p><?= INSTRUCTIONS_FIRSTNAME ?></p>
         </small>
 </div>
-<br>
+
 <div class="form-floating mb-3">
     <input name="username" class="form-control <?= !isset($formErrors['username']) ?: 'is-invalid' ?>" id="username" value="<?= isset($profilDetail)? $profilDetail->username : @$_POST['username']  ?>" type="text" placeholder="Votre pseudo" />
     <label for="username" class="form-label">Votre pseudo :</label>
@@ -43,7 +43,7 @@ require_once 'includes/header.php';
             <p><?= INSTRUCTIONS_USERNAME ?></p>
         </small>
 </div>
-<br>
+
 <div class="form-floating mb-3">
     <input name="mail" class="form-control <?= !isset($formErrors['mail']) ?: 'is-invalid' ?>" id="mail" value="<?= isset($profilDetail)? $profilDetail->mail : @$_POST['mail']  ?>" type="email" placeholder="Votre Email" />
     <label for="mail">Votre Email</label>
@@ -51,7 +51,18 @@ require_once 'includes/header.php';
             <p><?= @$formErrors['mail'] ?></p>
         </small>
 </div>
-<br>
+
+<div class="form-floating mb-3">
+        <input name="password" class="form-control <?= !isset($formErrors['password']) ?: 'is-invalid' ?>" id="password" value="<?= @$_POST['password'] ?>" type="password" placeholder="Votre mot de passe" />
+        <label for="password">Votre mot de passe</label>
+        <small class="invalid-feedback"><?= @$formErrors['password'] ?></small>
+    </div>
+
+    <div class="form-floating mb-3">
+    <input name="confirmPassword" class="form-control  <?= !isset($formErrors['confirmPassword']) ?: 'is-invalid' ?>" id="confirmPassword" value="<?= @$_POST['confirmPassword'] ?>" type="password" placeholder="La confirmation de votre mot de passe" />
+        <label for="confirmPassword" class="form-label">Confirmation de votre mot de passe</label>
+        <small class="invalid-feedback"><?= @$formErrors['confirmPassword'] ?></small>
+    </div>
 <input type="submit" class="btn btn-success" value="Valider" />
 </form>
     </div>

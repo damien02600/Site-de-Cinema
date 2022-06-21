@@ -94,7 +94,7 @@ class users extends database  // La class dit un users c'est ca.
 
   // Affiche les infos de l'utilisateur dans la page profil.php
   public function getUserById(){
-    $query = 'SELECT lastname, firstname, username, mail
+    $query = 'SELECT lastname, firstname, username, mail, password
     FROM mk9h8_users
     WHERE id = :id';
 $queryExecute = $this->db->prepare($query);
