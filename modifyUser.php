@@ -35,6 +35,14 @@ require_once 'includes/header.php';
         </small>
 </div>
 
+<div class="form-outline mb-3 <?= !isset($formErrors['gender']) ?: 'has-danger' ?>">
+                        <select name="gender" class="form-select <?= !isset($formErrors['gender']) ?: 'is-invalid' ?>" id="gender" aria-label="gender">
+                            <option value="1">Un homme</option>
+                            <option value="2">Une femme</option>
+                        </select>
+                        <small class="invalid-feedback"><?= @$formErrors['gender'] ?></small>
+                    </div>
+
 <div class="form-floating mb-3">
     <input name="username" class="form-control <?= !isset($formErrors['username']) ?: 'is-invalid' ?>" id="username" value="<?= isset($profilDetail)? $profilDetail->username : @$_POST['username']  ?>" type="text" placeholder="Votre pseudo" />
     <label for="username" class="form-label">Votre pseudo :</label>

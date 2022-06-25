@@ -4,6 +4,12 @@ $user = new users();
 
 $formErrors = [];
 
+
+$gender = [
+    '1' => 'Homme',
+    '2' => 'Femme', 
+];
+
 if (count($_POST) > 0) {
 
 var_dump($_POST);
@@ -31,6 +37,18 @@ var_dump($_POST);
         $formErrors['firstname'] = EMPTY_FIRSTNAME;
     }
 
+
+    if (!empty($_POST['gender'])) {
+        if ($_POST['gender'] == 1 || $_POST['gender'] == 2)  {
+            $user->gender = $_POST['gender'];  
+        } else {
+            $formErrors['gender'] = 'Vous devez sélectionner un sexe';
+        }    
+    } else {
+        $formErrors['gender'] = 'Vous devez sélectionner un sexe';
+    }
+
+    
     if (!empty($_POST['username'])) { // Si le champ 'username' n'est pas vide 
         if (preg_match($regex['username'], $_POST['username'])) { // Si la valeur correspond à la regex  
             $user->username = $_POST['username'];  // Attribut le résultat du champ user dans username
