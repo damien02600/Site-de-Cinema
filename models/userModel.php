@@ -10,7 +10,7 @@ class users extends database  // La class dit un users c'est ca.
     public $lastname = '';
     public $firstname = '';
     public $username = '';
-    // public $gender = '';
+    public $gender = '';
     public $mail = '';
 
   /**
@@ -79,7 +79,7 @@ class users extends database  // La class dit un users c'est ca.
       return $queryExecute->fetch(PDO::FETCH_OBJ);
     }
     
-      // Connexion
+      // Connexion au
   public function getUserByUsername()
   {
     $query = 'SELECT id, id_mk9h8_roles
