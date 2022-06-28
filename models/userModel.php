@@ -96,9 +96,10 @@ class users extends database  // La class dit un users c'est ca.
 
   // Affiche les infos de l'utilisateur dans la page profil.php
   public function getUserById(){
-    $query = 'SELECT lastname, firstname, username, mail,id_mk9h8_gender, password
+    $query = 'SELECT lastname, firstname, username, mail, password, name AS gender
     FROM mk9h8_users
-    WHERE id = :id';
+    INNER JOIN mk9h8_gender ON mk9h8_users.id_mk9h8_gender = mk9h8_gender.id
+    WHERE mk9h8_users.id = :id';
 $queryExecute = $this->db->prepare($query);
 // Mise en place du marqueur nominatif
 $queryExecute->bindValue(':id', $this->id, PDO::PARAM_INT);
@@ -111,14 +112,14 @@ return $queryResult;
   public function modifyUser()
   {
       $query = 'UPDATE  mk9h8_users
-      SET lastName = :lastname, firstname = :firstname,gender = :gender, username = :username, mail = :mail, password = :password
+      SET lastname = :lastname, firstname = :firstname,gender = :id_mk9h8_gender, username = :username, mail = :mail, password = :password
       WHERE id = :id';
 
       $queryExecute = $this->db->prepare($query);
       $queryExecute->bindValue(':lastname', $this->lastname, PDO::PARAM_STR);
       $queryExecute->bindValue(':firstname', $this->firstname, PDO::PARAM_STR);
       $queryExecute->bindValue(':username', $this->username, PDO::PARAM_STR);
-      $queryExecute->bindValue(':gender', $this->gender, PDO::PARAM_INT);
+      $queryExecute->bindValue(':id_mk9h8_gender', $this->id_mk9h8_gender, PDO::PARAM_INT);
       $queryExecute->bindValue(':mail', $this->mail, PDO::PARAM_STR);
       $queryExecute->bindValue(':password', $this->password, PDO::PARAM_STR);
       $queryExecute->bindValue(':id', $this->id, PDO::PARAM_INT);

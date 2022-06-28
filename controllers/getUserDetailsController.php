@@ -2,7 +2,6 @@
 
 // $user = new users(); // on instancie l'objet user
    $user = new users();
-   
    // Supprimer le profil
 
    if (!empty($_POST)) { 

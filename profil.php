@@ -10,7 +10,7 @@ require_once 'includes/header.php';
 <p>Profil de <?= $profilDetail->username ?></p>
 <p> Nom = <?= $profilDetail->lastname ?></p>
 <p> Prénom = <?= $profilDetail->firstname ?></p>
-<p> Genre = <?= $profilDetail->gender ?></p>
+<p> Gender = <?= $profilDetail->gender ?></p>
 <p> Mail = <?= $profilDetail->mail ?></p>
 <a href="./modifyUser.php?id=<?= $_SESSION['id'] ?>"><input type="submit" class="btn btn-success" value="Editer mon profil" /></a>
 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Supprimer</button>
