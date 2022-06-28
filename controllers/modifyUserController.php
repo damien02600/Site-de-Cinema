@@ -40,7 +40,7 @@ var_dump($_POST);
 
     if (!empty($_POST['gender'])) {
         if ($_POST['gender'] == 1 || $_POST['gender'] == 2)  {
-            $user->gender = $_POST['gender'];  
+            $user->id_mK9h8_gender = $_POST['gender'];  
         } else {
             $formErrors['gender'] = 'Vous devez sélectionner un sexe';
         }    

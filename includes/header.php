@@ -12,6 +12,17 @@
 </head>
 <body>
 <header>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 bg-danger">
+    <div class="text-center">
+  <img src="https://www.majestic-compiegne.fr/public/fichiers/logo-site/logo.png" class="rounded" alt="...">
+</div>
+    </div>
+    </div>
+    </div>
+
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <!-- Container wrapper -->
