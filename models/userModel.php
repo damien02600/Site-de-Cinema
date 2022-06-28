@@ -79,7 +79,7 @@ class users extends database  // La class dit un users c'est ca.
       return $queryExecute->fetch(PDO::FETCH_OBJ);
     }
     
-      // Connexion au
+      // Connexion
   public function getUserByUsername()
   {
     $query = 'SELECT id, id_mk9h8_roles
@@ -96,7 +96,7 @@ class users extends database  // La class dit un users c'est ca.
 
   // Affiche les infos de l'utilisateur dans la page profil.php
   public function getUserById(){
-    $query = 'SELECT lastname, firstname, username, mail, password
+    $query = 'SELECT lastname, firstname, username, mail,id_mk9h8_gender, password
     FROM mk9h8_users
     WHERE id = :id';
 $queryExecute = $this->db->prepare($query);
