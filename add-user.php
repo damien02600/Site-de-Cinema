@@ -2,6 +2,7 @@
 session_start();
 require_once 'models/database.php';
 require_once 'models/userModel.php';
+require_once 'models/genderModel.php';
 require_once 'config.php';
 require_once 'controllers/add-userController.php';
 require_once 'includes/header.php';
@@ -32,13 +33,20 @@ require_once 'includes/header.php';
         </div>
 
 
-        <div class="form-outline mb-3 <?= !isset($formErrors['gender']) ?: 'has-danger' ?>">
-            <select name="gender" class="form-select <?= !isset($formErrors['gender']) ?: 'is-invalid' ?>" id="gender" aria-label="gender">
-                <option value="1">Un homme</option>
-                <option value="2">Une femme</option>
+        <div class="<?= !isset($formErrors['gender']) ?: 'has-danger' ?>">
+            <select class="form-select  <?= !isset($formErrors['gender']) ?: 'is-invalid' ?>" id="gender" name="gender">
+              <option selected value="">Quelle est votre genre</option>
+              <!-- Je créer une boucle foreach qui ne fonctionne que pour les tableaux et les objets -->
+              <!-- La boucle permet de faire défiler un tableau  -->
+              <?php foreach ($genderList as $genderList) { ?>
+                <option <?= !empty($_POST['gender']) && $_POST['gender'] == $genderList->id ? 'selected' : '' ?> value="<?= $genderList->id ?>"><?= $genderList->name ?></option>
+              <?php } ?>
             </select>
-            <small class="invalid-feedback"><?= @$formErrors['gender'] ?></small>
-        </div>
+            <label for="gender"></label>
+            <small class="invalid-feedback">
+              <p><?= @$formErrors['gender'] ?></p>
+            </small>
+          </div>
 
         <div class="form-outline mb-3">
             <input name="mail" class="form-control <?= !isset($formErrors['mail']) ?: 'is-invalid' ?>" id="mail" value="<?= @$_POST['mail'] ?>" type="email" placeholder="Votre Email" />

@@ -10,7 +10,7 @@ class users extends database  // La class dit un users c'est ca.
     public $lastname = '';
     public $firstname = '';
     public $username = '';
-    public $gender = '';
+    public $gender  = '';
     public $mail = '';
 
   /**
@@ -34,15 +34,15 @@ class users extends database  // La class dit un users c'est ca.
      // déclaration de notre méthode
      public function addUser()
      {
-         $query = 'INSERT INTO `mk9h8_users`(`lastname`, `firstname`, `gender`, `username`, `mail`, `password`,`id_mk9h8_roles`)
-         VALUES (:lastname,:firstname,:gender,:username,:mail,:password,2)';
+         $query = 'INSERT INTO `mk9h8_users`(`lastname`, `firstname`, `id_mk9h8_gender`, `username`, `mail`, `password`,`id_mk9h8_roles`)
+         VALUES (:lastname,:firstname,:id_mk9h8_gender,:username,:mail,:password,2)';
 
          $queryExecute = $this->db->prepare($query);
          $queryExecute->bindValue(':lastname', $this->lastname, PDO::PARAM_STR);
          $queryExecute->bindValue(':firstname', $this->firstname, PDO::PARAM_STR);
-         $queryExecute->bindValue(':gender', $this->gender, PDO::PARAM_INT);
          $queryExecute->bindValue(':username', $this->username, PDO::PARAM_STR);
          $queryExecute->bindValue('mail', $this->mail, PDO::PARAM_STR);
+         $queryExecute->bindValue(':id_mk9h8_gender', $this->gender, PDO::PARAM_INT);
          $queryExecute->bindValue('password', $this->password, PDO::PARAM_STR);
          return $queryExecute->execute();
      }

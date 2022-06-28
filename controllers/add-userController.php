@@ -1,5 +1,11 @@
 <?php
 
+
+$user = new users();
+$gender = new gender();
+
+$genderList = $gender->getGenderList();
+
 $formErrors = [];
 
 
@@ -11,10 +17,8 @@ $gender = [
 
 if (count($_POST) > 0) {  // Si il y a au moins un champs du tableau POST qui est remplie
     // $user = new users(); // on instancie l'objet user
-    $user = new users();
 
-
-
+    var_dump($_POST);
     // Si la variable $_POST['lastName'] existe et n'est pas vide, alors $user = $_POST['lastName']
     if (!empty($_POST['lastname'])) { // Si la variable  'lastName' n'est pas vide 
         if (preg_match($regex['lastname'], $_POST['lastname'])) { // Si la valeur correspond à la regex  
@@ -41,7 +45,7 @@ if (count($_POST) > 0) {  // Si il y a au moins un champs du tableau POST qui es
 
     if (!empty($_POST['gender'])) {
         if ($_POST['gender'] == 1 || $_POST['gender'] == 2)  {
-            $user->gender = $_POST['gender'];  
+            $user->gender = $_POST['gender'];
         } else {
             $formErrors['gender'] = 'Vous devez sélectionner un sexe';
         }    

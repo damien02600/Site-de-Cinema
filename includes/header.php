@@ -32,7 +32,7 @@
     <!-- Collapsible wrapper -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <!-- Navbar brand -->
-<h2>Cinoche</h2>
+<h2>Majestic</h2>
       <!-- Left links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ps-3">
       <li class="nav-item">

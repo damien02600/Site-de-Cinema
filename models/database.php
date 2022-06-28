@@ -14,7 +14,7 @@ j'ajoute une structure de test de type try / catch
 qui va me permettre de récupérer le code d'erreur si la connexion dvait échouer.
 */
         try {
-            $this->db = new PDO('mysql:host=localhost;dbname=cinémamajestic;charset=utf8', 'root', '');
+            $this->db = new PDO('mysql:host=localhost;dbname=projettpmajestic;charset=utf8', 'root', '');
             return $this->db;
         } catch (Exception $error) {
             die($error->getMessage());
