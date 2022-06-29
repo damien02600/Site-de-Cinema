@@ -109,7 +109,6 @@ $queryResult = $queryExecute->fetch(PDO::FETCH_OBJ);
 return $queryResult;
   }
 
-
   
   public function modifyUser()
   {

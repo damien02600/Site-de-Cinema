@@ -1,18 +1,18 @@
 <?php
 
 $user = new users();
+$gender = new gender();
 
 $formErrors = [];
 
 
-$gender = [
-    '1' => 'Homme',
-    '2' => 'Femme', 
-];
+$gendersList = $gender->getGenderList();
+
+
 
 if (count($_POST) > 0) {
 
-var_dump($_POST);
+
 
     if (!empty($_POST['lastname'])) { // Si la variable  'lastName' n'est pas vide 
         if (preg_match($regex['lastname'], $_POST['lastname'])) { // Si la valeur correspond à la regex  

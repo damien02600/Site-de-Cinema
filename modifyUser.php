@@ -38,14 +38,15 @@ require_once 'includes/header.php';
 
                 <div class="form-outline mb-3 <?= !isset($formErrors['gender']) ?: 'has-danger' ?>">
                     <select name="gender" class="form-select <?= !isset($formErrors['gender']) ?: 'is-invalid' ?>" id="gender" aria-label="gender">
-                        <option selected value="">gender :</option>
-                        <?php foreach ($genderList as $genderList) { ?>
-                            <option <?php
-                                    if ($genderList->id == $genderList->gender) {
-                                        echo 'selected';
-                                    }
-                                    ?> value="<?= $genderList->id ?>"><?= $genderList->name ?></option>
-                        <?php } ?>
+                    <option selected value="">gender :</option>
+
+                        <?php foreach ($gendersList as $genderDetail) { ?>
+                                    <option <?php
+                                            if ($genderDetail->name == $profilDetail->gender) {
+                                                echo 'selected';
+                                            }
+                                            ?> value="<?= $genderDetail->id ?>"><?= $genderDetail->name ?></option>
+                                <?php } ?>
                     </select>
                     <small class="invalid-feedback"><?= @$formErrors['gender'] ?></small>
                 </div>

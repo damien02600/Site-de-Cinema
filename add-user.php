@@ -38,8 +38,8 @@ require_once 'includes/header.php';
               <option selected value="">Quelle est votre genre</option>
               <!-- Je créer une boucle foreach qui ne fonctionne que pour les tableaux et les objets -->
               <!-- La boucle permet de faire défiler un tableau  -->
-              <?php foreach ($genderList as $genderList) { ?>
-                <option <?= !empty($_POST['gender']) && $_POST['gender'] == $genderList->id ? 'selected' : '' ?> value="<?= $genderList->id ?>"><?= $genderList->name ?></option>
+              <?php foreach ($genderList as $genderDetails) { ?>
+                <option <?= !empty($_POST['gender']) && $_POST['gender'] == $genderDetails->id ? 'selected' : '' ?> value="<?= $genderDetails->id ?>"><?= $genderDetails->name ?></option>
               <?php } ?>
             </select>
             <label for="gender"></label>

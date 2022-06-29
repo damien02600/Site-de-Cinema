@@ -18,7 +18,6 @@ $gender = [
 if (count($_POST) > 0) {  // Si il y a au moins un champs du tableau POST qui est remplie
     // $user = new users(); // on instancie l'objet user
 
-    var_dump($_POST);
     // Si la variable $_POST['lastName'] existe et n'est pas vide, alors $user = $_POST['lastName']
     if (!empty($_POST['lastname'])) { // Si la variable  'lastName' n'est pas vide 
         if (preg_match($regex['lastname'], $_POST['lastname'])) { // Si la valeur correspond à la regex  
