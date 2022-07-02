@@ -113,14 +113,14 @@ return $queryResult;
   public function modifyUser()
   {
       $query = 'UPDATE  mk9h8_users
-      SET lastname = :lastname, firstname = :firstname,gender = :id_mk9h8_gender, username = :username, mail = :mail, password = :password
+      SET lastname = :lastname, firstname = :firstname,id_mk9h8_gender = :id_mk9h8_gender, username = :username, mail = :mail, password = :password
       WHERE id = :id';
 
       $queryExecute = $this->db->prepare($query);
       $queryExecute->bindValue(':lastname', $this->lastname, PDO::PARAM_STR);
       $queryExecute->bindValue(':firstname', $this->firstname, PDO::PARAM_STR);
       $queryExecute->bindValue(':username', $this->username, PDO::PARAM_STR);
-      $queryExecute->bindValue(':id_mk9h8_gender', $this->id_mk9h8_gender, PDO::PARAM_INT);
+      $queryExecute->bindValue(':id_mk9h8_gender', $this->gender, PDO::PARAM_INT);
       $queryExecute->bindValue(':mail', $this->mail, PDO::PARAM_STR);
       $queryExecute->bindValue(':password', $this->password, PDO::PARAM_STR);
       $queryExecute->bindValue(':id', $this->id, PDO::PARAM_INT);

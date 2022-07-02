@@ -5,14 +5,14 @@ $gender = new gender();
 
 $formErrors = [];
 
-
+// Cette requéte permet d'afficher la liste des genres
 $gendersList = $gender->getGenderList();
 
 
 
 if (count($_POST) > 0) {
 
-
+var_dump($_POST);
 
     if (!empty($_POST['lastname'])) { // Si la variable  'lastName' n'est pas vide 
         if (preg_match($regex['lastname'], $_POST['lastname'])) { // Si la valeur correspond à la regex  
@@ -37,10 +37,10 @@ if (count($_POST) > 0) {
         $formErrors['firstname'] = EMPTY_FIRSTNAME;
     }
 
-
+    
     if (!empty($_POST['gender'])) {
         if ($_POST['gender'] == 1 || $_POST['gender'] == 2)  {
-            $user->id_mK9h8_gender = $_POST['gender'];  
+            $user->gender = $_POST['gender'];
         } else {
             $formErrors['gender'] = 'Vous devez sélectionner un sexe';
         }    
@@ -48,7 +48,6 @@ if (count($_POST) > 0) {
         $formErrors['gender'] = 'Vous devez sélectionner un sexe';
     }
 
-    
     if (!empty($_POST['username'])) { // Si le champ 'username' n'est pas vide 
         if (preg_match($regex['username'], $_POST['username'])) { // Si la valeur correspond à la regex  
             $user->username = $_POST['username'];  // Attribut le résultat du champ user dans username
