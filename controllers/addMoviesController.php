@@ -1,8 +1,24 @@
 <?php
 
+
+$movie = new movies();
+$genre = new genre();
+$language = new language();
+$reference = new reference();
+$nationality = new nationality();
+$directors = new directors();
+
+$genreList = $genre->getGenreList();
+$languageList = $language->getLanguageList();
+$referenceList = $reference->getReferenceList();
+$nationalityList = $nationality->getNationalityList();
+$directorsList = $directors->getDirectorsList();
+
+$formErrors = [];
+
+
 if (count($_POST) > 0) {  // Si il y a au moins un champs du tableau POST qui est remplie
     // $user = new users(); // on instancie l'objet user
-    $movie = new movies();
 
     var_dump($_POST);
 
@@ -34,5 +50,26 @@ if (count($_POST) > 0) {  // Si il y a au moins un champs du tableau POST qui es
 
         $movie->id_mk9h8_genres  = $_POST['genre'];
     } 
+
+    if (!empty($_POST['language'])) {
+
+        $movie->id_mk9h8_language  = $_POST['language'];
+    } 
+
+    if (!empty($_POST['reference'])) {
+
+        $movie->id_mk9h8_reference  = $_POST['reference'];
+    } 
+
+    if (!empty($_POST['nationality'])) {
+
+        $movie->id_mk9h8_nationality = $_POST['nationality'];
+    } 
+
+    if (!empty($_POST['directors'])) {
+
+        $movie->id_mk9h8_directors = $_POST['directors'];
+    } 
+
     $movie->addMovies();
 }

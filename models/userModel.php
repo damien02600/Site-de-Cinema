@@ -17,7 +17,7 @@ class users extends database  // La class dit un users c'est ca.
      * __construct() =  methode magique
      * il se declenche au moment ou on intancie l'objet
      * elle permet de se connecter a la base de donné en appelant la methode construct 
-     * du parent, donc database qui elle contient l'objet PDO et la phrase de connexion 
+     * du parent, donc database qui elle contientn l'objet PDO et la phrase de connexion 
    */
 
     public function __construct()

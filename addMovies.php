@@ -1,7 +1,12 @@
 <?php
 session_start();
 require_once 'models/database.php';
-require_once 'models/addMoviesModel.php';
+require_once 'models/moviesModel.php';
+require_once 'models/genreModel.php';
+require_once 'models/languageModel.php';
+require_once 'models/referenceModel.php';
+require_once 'models/nationalityModel.php';
+require_once 'models/directorsModel.php';
 require_once 'config.php';
 require_once 'controllers/addMoviesController.php';
 require_once 'includes/header.php';
@@ -40,49 +45,64 @@ require_once 'includes/header.php';
       <input class="form-control" type="file" id="picture" name="upload_file">
     </div>
 
-    <div class="mb-3">
-      <select class="form-select" aria-label="genre">
-        <option selected>Genre</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+    <div class=" mb-3<?= !isset($formErrors['genre']) ?: 'has-danger' ?>">
+      <select class="form-select  <?= !isset($formErrors['genre']) ?: 'is-invalid' ?>" id="genre" name="genre">
+        <option selected value="">genre</option>
+        <!-- Je créer une boucle foreach qui ne fonctionne que pour les tableaux et les objets -->
+        <!-- La boucle permet de faire défiler un tableau  -->
+        <?php foreach ($genreList as $genreDetails) { ?>
+          <option <?= !empty($_POST['genre']) && $_POST['genre'] == $genreDetails->id ? 'selected' : '' ?> value="<?= $genreDetails->id ?>"><?= $genreDetails->name ?></option>
+        <?php } ?>
       </select>
+      <label for="gender"></label>
     </div>
 
-    <div class="mb-3">
-      <select class="form-select" aria-label="language">
-        <option selected>language</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+    <div class=" mb-3<?= !isset($formErrors['language']) ?: 'has-danger' ?>">
+      <select class="form-select  <?= !isset($formErrors['language']) ?: 'is-invalid' ?>" id="language" name="language">
+        <option selected value="">language</option>
+        <!-- Je créer une boucle foreach qui ne fonctionne que pour les tableaux et les objets -->
+        <!-- La boucle permet de faire défiler un tableau  -->
+        <?php foreach ($languageList as $languageDetails) { ?>
+          <option <?= !empty($_POST['language']) && $_POST['language'] == $languageDetails->id ? 'selected' : '' ?> value="<?= $languageDetails->id ?>"><?= $languageDetails->name ?></option>
+        <?php } ?>
       </select>
+      <label for="language"></label>
     </div>
 
-    <div class="mb-3">
-      <select class="form-select" aria-label="reference">
-        <option selected>reference</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+    <div class=" mb-3<?= !isset($formErrors['reference']) ?: 'has-danger' ?>">
+      <select class="form-select  <?= !isset($formErrors['reference']) ?: 'is-invalid' ?>" id="reference" name="reference">
+        <option selected value="">reference</option>
+        <!-- Je créer une boucle foreach qui ne fonctionne que pour les tableaux et les objets -->
+        <!-- La boucle permet de faire défiler un tableau  -->
+        <?php foreach ($referenceList as $referenceDetails) { ?>
+          <option <?= !empty($_POST['reference']) && $_POST['reference'] == $referenceDetails->id ? 'selected' : '' ?> value="<?= $referenceDetails->id ?>"><?= $referenceDetails->name ?></option>
+        <?php } ?>
       </select>
+      <label for="reference"></label>
     </div>
 
-    <div class="mb-3">
-      <select class="form-select" aria-label="nationality">
-        <option selected>nationality</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+    <div class=" mb-3<?= !isset($formErrors['nationality']) ?: 'has-danger' ?>">
+      <select class="form-select  <?= !isset($formErrors['nationality']) ?: 'is-invalid' ?>" id="nationality" name="nationality">
+        <option selected value="">nationality</option>
+        <!-- Je créer une boucle foreach qui ne fonctionne que pour les tableaux et les objets -->
+        <!-- La boucle permet de faire défiler un tableau  -->
+        <?php foreach ($nationalityList as $nationalityDetails) { ?>
+          <option <?= !empty($_POST['nationality']) && $_POST['nationality'] == $nationalityDetails->id ? 'selected' : '' ?> value="<?= $nationalityDetails->id ?>"><?= $nationalityDetails->name ?></option>
+        <?php } ?>
       </select>
+      <label for="nationality"></label>
     </div>
 
-    <div class="mb-3">
-      <select class="form-select" aria-label="directors">
-        <option selected>directors</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+    <div class=" mb-3<?= !isset($formErrors['directors']) ?: 'has-danger' ?>">
+      <select class="form-select  <?= !isset($formErrors['directors']) ?: 'is-invalid' ?>" id="directors" name="directors">
+        <option selected value="">directors</option>
+        <!-- Je créer une boucle foreach qui ne fonctionne que pour les tableaux et les objets -->
+        <!-- La boucle permet de faire défiler un tableau  -->
+        <?php foreach ($directorsList as $directorsDetails) { ?>
+          <option <?= !empty($_POST['directors']) && $_POST['directors'] == $directorsDetails->id ? 'selected' : '' ?> value="<?= $directorsDetails->id ?>"><?= $directorsDetails->name ?></option>
+        <?php } ?>
       </select>
+      <label for="directors"></label>
     </div>
 
     <input type="submit" class="btn btn-success" value="Envoyer" />
