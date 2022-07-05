@@ -10,7 +10,7 @@
   <title>Page d'accueil</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
-<body>
+<body style="background-color: #F6F6F6;">
 <header>
 
 <div class="container-fluid">
@@ -58,17 +58,6 @@
         <li class="nav-item ">
         <li><a class="nav-link active fw-bold" style="color: white;" aria-current="page" href="home.php">Offres et Actus</a></li>
         </li>
-        <li class="nav-item">
-        <?php if (empty($_SESSION['username'])) { ?> <!--Si l'utilisateur n'est pas connecté -->
-          <li><a class="nav-link fw-bold"  style="color: white;"  href="add-user.php">Inscription</a></li> <!--On affiche Inscription -->
-        <?php } ?>
-        </li>
-
-        <li class="nav-item">
-        <?php if (empty($_SESSION['username'])) { ?> <!--Si l'utilisateur n'est pas connecté -->
-          <li><a class="nav-link fw-bold"  style="color: white;"  href="login.php">Connexion</a></li> <!--On affiche Connexion -->
-        <?php } ?>
-        </li>
       </ul>
       <!-- Left links -->
     </div>
@@ -98,12 +87,6 @@
       <i class="fas fa-solid fa-power-off text-danger"></i>
       </a>
       <?php } ?>
-
-      <li class="nav-item ">
-        <?php if (empty($_SESSION['username'])) { ?> <!--Si l'utilisateur n'est pas connecté -->
-          <li><a class="nav-link fw-bold pe-3"  style="color: white;"  href="add-user.php">Inscription</a></li> <!--On affiche Inscription -->
-        <?php } ?>
-        </li>
 
         <li class="nav-item">
         <?php if (empty($_SESSION['username'])) { ?> <!--Si l'utilisateur n'est pas connecté -->
