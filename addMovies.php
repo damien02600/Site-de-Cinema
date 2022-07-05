@@ -42,7 +42,7 @@ require_once 'includes/header.php';
     </div>
 
     <div class="mb-3">
-      <input class="form-control" type="file" id="picture" name="upload_file">
+      <input class="form-control" type="text" id="picture" name="upload_file">
     </div>
 
     <div class=" mb-3<?= !isset($formErrors['genre']) ?: 'has-danger' ?>">

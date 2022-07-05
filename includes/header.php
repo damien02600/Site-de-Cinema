@@ -15,16 +15,16 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-12 bg-danger">
+    <div class="col-12 p-2 " style="background-color: #B91625;">
     <div class="text-center">
-  <img src="https://www.majestic-compiegne.fr/public/fichiers/logo-site/logo.png" class="rounded" alt="...">
+  <img src="https://www.majestic-compiegne.fr/public/fichiers/logo-site/logo.png" alt="...">
 </div>
     </div>
     </div>
     </div>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg border-top border-dark" style="background-color: #B91625; color:white">
   <!-- Container wrapper -->
   <div class="container-fluid">
     <!-- Toggle button -->
@@ -43,21 +43,30 @@
     <!-- Collapsible wrapper -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <!-- Navbar brand -->
-<h2>Majestic</h2>
+
       <!-- Left links -->
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ps-3">
-      <li class="nav-item">
-        <li><a class="nav-link active" aria-current="page" href="home.php">Accueil</a></li>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ps-3" >
+      <li class="nav-item ">
+        <li><a class="nav-link active fw-bold" style="color: white;" aria-current="page" href="home.php">Accueil</a></li>
+        </li>
+        <li class="nav-item ">
+        <li><a class="nav-link active fw-bold" style="color: white;" aria-current="page" href="home.php">Films et événements</a></li>
+        </li>
+        <li class="nav-item ">
+        <li><a class="nav-link active fw-bold" style="color: white;" aria-current="page" href="home.php">Abonnements</a></li>
+        </li>
+        <li class="nav-item ">
+        <li><a class="nav-link active fw-bold" style="color: white;" aria-current="page" href="home.php">Offres et Actus</a></li>
         </li>
         <li class="nav-item">
         <?php if (empty($_SESSION['username'])) { ?> <!--Si l'utilisateur n'est pas connecté -->
-          <li><a class="nav-link"  href="add-user.php">Inscription</a></li> <!--On affiche Inscription -->
+          <li><a class="nav-link fw-bold"  style="color: white;"  href="add-user.php">Inscription</a></li> <!--On affiche Inscription -->
         <?php } ?>
         </li>
 
         <li class="nav-item">
         <?php if (empty($_SESSION['username'])) { ?> <!--Si l'utilisateur n'est pas connecté -->
-          <li><a class="nav-link"  href="login.php">Connexion</a></li> <!--On affiche Connexion -->
+          <li><a class="nav-link fw-bold"  style="color: white;"  href="login.php">Connexion</a></li> <!--On affiche Connexion -->
         <?php } ?>
         </li>
       </ul>
@@ -68,16 +77,39 @@
     <!-- Right elements -->
     <div class="d-flex align-items-center">
       <!-- Icon -->
+      <div class="input-group pe-3">
+  <div>
+    <input type="search" placeholder="Faite votre recherche" id="form1" class="form-control" />
+  </div>
+  <button type="button" class="btn ">
+    <i class="fas fa-search"></i>
+  </button>
+</div>
+
+
       <?php if (!empty($_SESSION['username'])) { ?> <!--Si l'utilisateur est connecté -->
       <a class="text-reset me-3" href="profil.php">
-      <i class="fas fa-solid fa-user"></i>
+      <i class="fas fa-solid fa-user"  style="color: white; font-weight:bold"></i>
       </a>
       <?php } ?>
+
       <?php if (!empty($_SESSION['username'])) { ?> <!--Si l'utilisateur est connecté -->
       <a class="text-reset me-3" href="./controllers/logoutController.php?id=<?= $_SESSION['id'] ?>">
       <i class="fas fa-solid fa-power-off text-danger"></i>
       </a>
       <?php } ?>
+
+      <li class="nav-item ">
+        <?php if (empty($_SESSION['username'])) { ?> <!--Si l'utilisateur n'est pas connecté -->
+          <li><a class="nav-link fw-bold pe-3"  style="color: white;"  href="add-user.php">Inscription</a></li> <!--On affiche Inscription -->
+        <?php } ?>
+        </li>
+
+        <li class="nav-item">
+        <?php if (empty($_SESSION['username'])) { ?> <!--Si l'utilisateur n'est pas connecté -->
+          <li><a class="nav-link fw-bold"  style="color: white;"  href="login.php">Connexion</a></li> <!--On affiche Connexion -->
+        <?php } ?>
+        </li>
     </div>
     <!-- Right elements -->
 

@@ -1,8 +1,5 @@
 .row.no-gutter { margin-left: 0; margin-right: 0; }
 
-
-.red {
-    background-color: red;
-    padding: 0;
-    margin: 0;
-}
+li{
+    list-style:none ;
+    }

@@ -3,7 +3,7 @@
 // On créer la class users qui herite de la class datbase.
 // La class est une représentation de quelque choses.
 
-class movies extends database  // La class dit un users c'est ca.
+class movies extends database 
 {
     protected $db = NULL;
     public $id = 0;
@@ -43,11 +43,11 @@ class movies extends database  // La class dit un users c'est ca.
         $queryExecute->bindValue('releaseDate', $this->releaseDate, PDO::PARAM_INT);
         $queryExecute->bindValue(':duration', $this->duration, PDO::PARAM_INT);
         $queryExecute->bindValue('picture', $this->picture, PDO::PARAM_STR);
-        $queryExecute->bindValue('id_mk9h8_genres', $this->id_mk9h8_genres, PDO::PARAM_INT);
-        $queryExecute->bindValue('id_mk9h8_language', $this->id_mk9h8_language, PDO::PARAM_INT);
-        $queryExecute->bindValue('id_mk9h8_reference', $this->id_mk9h8_reference, PDO::PARAM_INT);
-        $queryExecute->bindValue('id_mk9h8_nationality', $this->id_mk9h8_nationality, PDO::PARAM_INT);
-        $queryExecute->bindValue('id_mk9h8_directors', $this->id_mk9h8_directors, PDO::PARAM_INT);
+        $queryExecute->bindValue('id_mk9h8_genres', $this->id_mk9h8_genres, PDO::PARAM_STR);
+        $queryExecute->bindValue('id_mk9h8_language', $this->id_mk9h8_language, PDO::PARAM_STR);
+        $queryExecute->bindValue('id_mk9h8_reference', $this->id_mk9h8_reference, PDO::PARAM_STR);
+        $queryExecute->bindValue('id_mk9h8_nationality', $this->id_mk9h8_nationality, PDO::PARAM_STR);
+        $queryExecute->bindValue('id_mk9h8_directors', $this->id_mk9h8_directors, PDO::PARAM_STR);
         return $queryExecute->execute();
     }
 

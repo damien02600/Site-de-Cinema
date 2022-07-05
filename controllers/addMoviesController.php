@@ -1,6 +1,5 @@
 <?php
 
-
 $movie = new movies();
 $genre = new genre();
 $language = new language();
@@ -20,18 +19,18 @@ $formErrors = [];
 if (count($_POST) > 0) {  // Si il y a au moins un champs du tableau POST qui est remplie
     // $user = new users(); // on instancie l'objet user
 
-    var_dump($_POST);
 
-    if (!empty($_POST['title_vo'])) {
-        $movie->title_vo = $_POST['title_vo']; 
+    if (!empty($_POST['titleVo'])) {
+
+        $movie->title_vo = $_POST['titleVo']; 
     }
 
-    if (!empty($_POST['title_vf'])) {
-        $movie->title_vf = $_POST['title_vf']; 
+    if (!empty($_POST['titleVf'])) {
+        $movie->title_vf = $_POST['titleVf']; 
     }
 
     if (!empty($_POST['synopsis'])) {
-        $movie->synopsis = $_POST['synopsis']; 
+        $movie->description = $_POST['synopsis']; 
     }
 
     if (!empty($_POST['releaseDate'])) {
@@ -42,8 +41,8 @@ if (count($_POST) > 0) {  // Si il y a au moins un champs du tableau POST qui es
         $movie->duration = $_POST['duration']; 
     }
 
-    if (!empty($_POST['picture'])) {
-        $movie->picture = $_POST['picture']; 
+    if (!empty($_POST['upload_file'])) {
+        $movie->picture = $_POST['upload_file']; 
     }
 
     if (!empty($_POST['genre'])) {
@@ -72,4 +71,5 @@ if (count($_POST) > 0) {  // Si il y a au moins un champs du tableau POST qui es
     } 
 
     $movie->addMovies();
+
 }
