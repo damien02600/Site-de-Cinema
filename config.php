@@ -15,6 +15,15 @@ define('INSTRUCTIONS_USERNAME', 'Le pseudo peut contenir des lettres (a - z) et 
 define('EMPTY_MAIL', 'L\'email  est obligatoire');
 define('INVALID_MAIL', 'L\'email  n\'est pas correcte');
 
+// ADD MOVIES
+
+define('INSTRUCTIONS_TITLEVO', 'Le titre ne doit contenir que des lettres (a - z), des espaces, ou des tirets.');
+
+define('EMPTY_TITLEVF', 'Le titre du film est obligatoire');
+define('INSTRUCTIONS_TITLEVF', 'Le titre ne doit contenir que des lettres (a - z), des espaces, ou des tirets.');
+
+define('EMPTY_SYNOPSIS', 'Le synopsis du film est obligatoire');
+
 
 $regex = [
     'lastname' => '/^[a-zA-Z]{3,50}$/',

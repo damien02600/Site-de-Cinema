@@ -19,30 +19,43 @@ require_once 'includes/header.php';
   <form method="POST" action="">
 
     <div class="form-floating mb-3">
-      <input name="titleVo" class="form-control" id="titleVo" value="" type="text" placeholder="Titre en VO" />
-      <label for="titleVo" class="form-label">Titre en VO :</label>
+      <input name="title_vo" class="form-control <?= !isset($formErrors['title_vo']) ?: 'is-invalid' ?>" id="title_vo" value="<?= @$_POST['title_vo'] ?>" type="text" placeholder="Titre en VO" />
+      <label for="title_vo" class="form-label">Titre en VO :</label>
+      <small class="invalid-feedback">
+                <span><?= @$formErrors['title_vo'] ?></span>
+                <br>
+                <span><?= INSTRUCTIONS_TITLEVO ?></span>
+            </small>
     </div>
 
     <div class="form-floating mb-3">
-      <input name="titleVf" class="form-control" id="titleVf" value="" type="text" placeholder="Titre en VF" />
-      <label for="titleVf" class="form-label">Titre en VF :</label>
+      <input name="title_vf" class="form-control <?= !isset($formErrors['title_vf']) ?: 'is-invalid' ?>" id="title_vf" value="<?= @$_POST['title_vf'] ?>" type="text" placeholder="Titre en VF" />
+      <label for="title_vf" class="form-label">Titre en VF :</label>
+      <small class="invalid-feedback">
+                <span><?= @$formErrors['title_vf'] ?></span>
+                <br>
+                <span><?= INSTRUCTIONS_TITLEVF ?></span>
+            </small>
     </div>
 
     <div class="mb-3">
-      <textarea class="form-control" name="synopsis" id="synopsis" placeholder="Le synopsis"></textarea>
+      <textarea class="form-control <?= !isset($formErrors['synopsis']) ?: 'is-invalid' ?>" name="synopsis" id="synopsis" placeholder="Le synopsis"><?=@$_POST['synopsis'] ?></textarea>
       <label for="synopsis"></label>
+      <small class="invalid-feedback">
+                <span><?= @$formErrors['synopsis'] ?></span>
+            </small>
     </div>
 
     <div class="mb-3">
-      <input name="releaseDate" class="form-control" id="releaseDate" value="" type="date" placeholder="Votre date" />
+      <input name="releaseDate" class="form-control" id="releaseDate" value="<?= @$_POST['releaseDate'] ?>" type="date" placeholder="Votre date" />
     </div>
 
     <div class="mb-3">
-      <input name="duration" class="form-control" id="duration" value="" type="time" placeholder="Duration" />
+      <input name="duration" class="form-control" id="duration" value="<?= @$_POST['duration'] ?>" type="time" placeholder="Duration" />
     </div>
 
     <div class="mb-3">
-      <input class="form-control" type="text" id="picture" name="upload_file">
+      <input class="form-control" type="text" id="picture" value="<?= @$_POST['upload_file'] ?>" name="upload_file">
     </div>
 
     <div class=" mb-3<?= !isset($formErrors['genre']) ?: 'has-danger' ?>">

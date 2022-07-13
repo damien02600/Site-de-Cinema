@@ -24,7 +24,7 @@
     </div>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg border-top border-dark" style="background-color: #B91625; color:white">
+<nav class="navbar navbar-expand-lg border-top border-dark shadow " style="background-color: #B91625; color:white">
   <!-- Container wrapper -->
   <div class="container-fluid">
     <!-- Toggle button -->
