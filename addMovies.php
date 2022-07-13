@@ -23,8 +23,6 @@ require_once 'includes/header.php';
       <label for="title_vo" class="form-label">Titre en VO :</label>
       <small class="invalid-feedback">
                 <span><?= @$formErrors['title_vo'] ?></span>
-                <br>
-                <span><?= INSTRUCTIONS_TITLEVO ?></span>
             </small>
     </div>
 
@@ -33,29 +31,36 @@ require_once 'includes/header.php';
       <label for="title_vf" class="form-label">Titre en VF :</label>
       <small class="invalid-feedback">
                 <span><?= @$formErrors['title_vf'] ?></span>
-                <br>
-                <span><?= INSTRUCTIONS_TITLEVF ?></span>
             </small>
     </div>
 
     <div class="mb-3">
-      <textarea class="form-control <?= !isset($formErrors['synopsis']) ?: 'is-invalid' ?>" name="synopsis" id="synopsis" placeholder="Le synopsis"><?=@$_POST['synopsis'] ?></textarea>
-      <label for="synopsis"></label>
+      <textarea class="form-control <?= !isset($formErrors['releaseDate']) ?: 'is-invalid' ?>" name="synopsis" id="synopsis" placeholder="Le synopsis"><?=@$_POST['synopsis'] ?></textarea>
       <small class="invalid-feedback">
                 <span><?= @$formErrors['synopsis'] ?></span>
             </small>
+      <label for="synopsis"></label>
     </div>
 
     <div class="mb-3">
-      <input name="releaseDate" class="form-control" id="releaseDate" value="<?= @$_POST['releaseDate'] ?>" type="date" placeholder="Votre date" />
+      <input name="releaseDate" class="form-control <?= !isset($formErrors['releaseDate']) ?: 'is-invalid' ?>" id="releaseDate" value="<?= @$_POST['releaseDate'] ?>" type="date" placeholder="Votre date" />
+            <small class="invalid-feedback">
+                <span><?= @$formErrors['releaseDate'] ?></span>
+            </small>
     </div>
 
     <div class="mb-3">
-      <input name="duration" class="form-control" id="duration" value="<?= @$_POST['duration'] ?>" type="time" placeholder="Duration" />
+      <input name="duration" class="form-control <?= !isset($formErrors['duration']) ?: 'is-invalid' ?>" id="duration" value="<?= @$_POST['duration'] ?>" type="time" placeholder="Duration" />
+      <small class="invalid-feedback">
+                <span><?= @$formErrors['duration'] ?></span>
+            </small>
     </div>
 
     <div class="mb-3">
-      <input class="form-control" type="text" id="picture" value="<?= @$_POST['upload_file'] ?>" name="upload_file">
+      <input class="form-control <?= !isset($formErrors['upload_file']) ?: 'is-invalid' ?>" type="file" id="upload_file" value="<?= @$_POST['upload_file'] ?>" name="upload_file">
+      <small class="invalid-feedback">
+                <span><?= @$formErrors['upload_file'] ?></span>
+            </small>
     </div>
 
     <div class=" mb-3<?= !isset($formErrors['genre']) ?: 'has-danger' ?>">
@@ -67,6 +72,9 @@ require_once 'includes/header.php';
           <option <?= !empty($_POST['genre']) && $_POST['genre'] == $genreDetails->id ? 'selected' : '' ?> value="<?= $genreDetails->id ?>"><?= $genreDetails->name ?></option>
         <?php } ?>
       </select>
+      <small class="invalid-feedback">
+                <span><?= @$formErrors['genre'] ?></span>
+            </small>
       <label for="gender"></label>
     </div>
 
@@ -79,6 +87,9 @@ require_once 'includes/header.php';
           <option <?= !empty($_POST['language']) && $_POST['language'] == $languageDetails->id ? 'selected' : '' ?> value="<?= $languageDetails->id ?>"><?= $languageDetails->name ?></option>
         <?php } ?>
       </select>
+      <small class="invalid-feedback">
+                <span><?= @$formErrors['language'] ?></span>
+            </small>
       <label for="language"></label>
     </div>
 
@@ -91,6 +102,9 @@ require_once 'includes/header.php';
           <option <?= !empty($_POST['reference']) && $_POST['reference'] == $referenceDetails->id ? 'selected' : '' ?> value="<?= $referenceDetails->id ?>"><?= $referenceDetails->name ?></option>
         <?php } ?>
       </select>
+      <small class="invalid-feedback">
+                <span><?= @$formErrors['reference'] ?></span>
+            </small>
       <label for="reference"></label>
     </div>
 
@@ -103,6 +117,9 @@ require_once 'includes/header.php';
           <option <?= !empty($_POST['nationality']) && $_POST['nationality'] == $nationalityDetails->id ? 'selected' : '' ?> value="<?= $nationalityDetails->id ?>"><?= $nationalityDetails->name ?></option>
         <?php } ?>
       </select>
+      <small class="invalid-feedback">
+                <span><?= @$formErrors['nationality'] ?></span>
+            </small>
       <label for="nationality"></label>
     </div>
 
@@ -115,6 +132,9 @@ require_once 'includes/header.php';
           <option <?= !empty($_POST['directors']) && $_POST['directors'] == $directorsDetails->id ? 'selected' : '' ?> value="<?= $directorsDetails->id ?>"><?= $directorsDetails->name ?></option>
         <?php } ?>
       </select>
+      <small class="invalid-feedback">
+                <span><?= @$formErrors['nationality'] ?></span>
+            </small>
       <label for="directors"></label>
     </div>
 

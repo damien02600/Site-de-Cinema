@@ -17,12 +17,28 @@ define('INVALID_MAIL', 'L\'email  n\'est pas correcte');
 
 // ADD MOVIES
 
-define('INSTRUCTIONS_TITLEVO', 'Le titre ne doit contenir que des lettres (a - z), des espaces, ou des tirets.');
-
 define('EMPTY_TITLEVF', 'Le titre du film est obligatoire');
-define('INSTRUCTIONS_TITLEVF', 'Le titre ne doit contenir que des lettres (a - z), des espaces, ou des tirets.');
 
 define('EMPTY_SYNOPSIS', 'Le synopsis du film est obligatoire');
+
+define('EMPTY_RELEASEDATE', 'La date de sortie du film est obligatoire');
+
+define('EMPTY_DURATION', 'La durée du film est obligatoire');
+
+define('EMPTY_PICTURE', 'L\'affiche est obligatoire.');
+define('INVALID_PICTURE', 'L\'affiche n\'est pas au bon format : png, jpeg, jpg, gif uniquement.');
+
+define('EMPTY_GENRE', 'Le genre du film est obligatoire');
+
+define('EMPTY_LANGUAGE', 'Le langage du film est obligatoire');
+
+define('EMPTY_REFERENCE', 'La reférence du film est obligatoire');
+
+define('EMPTY_NATIONALITY', 'La nationalité du film est obligatoire');
+
+define('EMPTY_DIRECTORS', 'Le réalisateur du film est obligatoire');
+
+
 
 
 $regex = [
