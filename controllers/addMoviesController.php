@@ -19,6 +19,7 @@ $formErrors = [];
 if (count($_POST) > 0) {  // Si il y a au moins un champs du tableau POST qui est remplie
     // $user = new users(); // on instancie l'objet user
 
+    var_dump($_FILES);
 
     if (!empty($_POST['title_vo'])) {
 
@@ -68,7 +69,7 @@ if (count($_POST) > 0) {  // Si il y a au moins un champs du tableau POST qui es
             if (move_uploaded_file($_FILES['upload_file']['tmp_name'], 'assets/uploads/films/' . $_FILES['upload_file']['name'])) {
                 //Lecture et écriture pour le propriétaire, lecture pour les autres
                 chmod('assets/uploads/films/' . $_FILES['upload_file']['name'], 0644);
-                $movies->picture = 'assets/uploads/films/' . $_FILES['upload_file']['name'];
+                $movie->picture = 'assets/uploads/films/' . $_FILES['upload_file']['name'];
             } else {
                 $formErrors['upload_file'] = 'Une erreur est survenue lors de l\'envoi.';
             }

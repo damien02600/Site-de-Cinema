@@ -16,7 +16,7 @@ require_once 'includes/header.php';
   <div class="text-center pb-4">
     <h1 class="mb-1 pt-4">Ajoutez un film</h1>
   </div>
-  <form method="POST" action="">
+  <form method="POST"  enctype="multipart/form-data" action="">
 
     <div class="form-floating mb-3">
       <input name="title_vo" class="form-control <?= !isset($formErrors['title_vo']) ?: 'is-invalid' ?>" id="title_vo" value="<?= @$_POST['title_vo'] ?>" type="text" placeholder="Titre en VO" />
