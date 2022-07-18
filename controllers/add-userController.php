@@ -1,6 +1,5 @@
 <?php
-
-
+// J'instancie la class user, instancier une classe, c'est se servir d'une classe afin qu'elle nous crée un objet
 $user = new users();
 $gender = new gender();
 
