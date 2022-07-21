@@ -49,7 +49,7 @@ class movies extends database
     return $queryExecute->execute();
   }
 
-// Cette requete permet d'afficher le titre et la photo du film dans la page d'accueil
+  // Cette requete permet d'afficher le titre et la photo du film dans la page d'accueil
   public function getMoviesList()
   {
     $query = 'SELECT title_vf, picture 
@@ -57,6 +57,31 @@ class movies extends database
 
     $queryExecute = $this->db->query($query);
     $queryResult = $queryExecute->fetchAll(PDO::FETCH_OBJ);
+    return $queryResult;
+  }
+
+  // Je créer cette requete pour afficher les détails du film en fonction de l'id de movies
+  public function getMoviesDetails()
+  {
+    $query = 'SELECT movies.id AS idForMovie, title_vo, title_vf, synopsis, releaseDate, duration, picture, genres.name AS genresName, language.name AS languageName, reference.name AS referenceName, nationality.name AS nationalityName, directors.name AS directorsName
+    FROM mk9h8_movies AS movies
+    INNER JOIN mk9h8_genres AS genres
+    ON movies.id_mk9h8_genres = genres.id
+    INNER JOIN mk9h8_language AS LANGUAGE
+    ON movies.id_mk9h8_language = language.id
+    INNER JOIN mk9h8_reference AS REFERENCE
+    ON movies.id_mk9h8_reference = reference.id
+    INNER JOIN mk9h8_nationality AS nationality
+    ON movies.id_mk9h8_nationality = nationality.id
+    INNER JOIN mk9h8_directors AS directors
+    ON movies.id_mk9h8_directors = directors.id
+    WHERE movies.id = :id';
+
+    // lier les valeur au emplacement dans la data base 
+    $queryExecute = $this->db->prepare($query);
+    $queryExecute->bindValue(':id', $this->id, PDO::PARAM_INT);
+    $queryExecute->execute();
+    $queryResult = $queryExecute->fetch(PDO::FETCH_OBJ);
     return $queryResult;
   }
 }

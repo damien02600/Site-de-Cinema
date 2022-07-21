@@ -18,7 +18,7 @@ require_once 'includes/header.php';
                                 <div class="card-header no-border">
 
                                         <div class="bg-image hover-overlay ripple hover-shadow" data-mdb-ripple-color="light">
-                                                <a href="#"><img src="https://thisartworkdoesnotexist.com" class="card-img-top p-3" alt="photo" /></a>
+                                                <a href="./detailMovie.php"><img src="<?= $movieDetails->picture ?>" class="card-img-top p-3" alt="photo" /></a>
                                         </div>             
                                         <div class="text-center shadow-5">
                                                 <!-- Je lui dit que je veux la valeur de la l'atribut title_vf de la class movies -->
