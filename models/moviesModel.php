@@ -53,7 +53,7 @@ class movies extends database
   public function getMoviesList()
   {
     $query = 'SELECT title_vf, picture 
-  FROM mk9h8_movies';
+  FROM mk9h8_movies ';
 
     $queryExecute = $this->db->query($query);
     $queryResult = $queryExecute->fetchAll(PDO::FETCH_OBJ);
@@ -67,9 +67,9 @@ class movies extends database
     FROM mk9h8_movies AS movies
     INNER JOIN mk9h8_genres AS genres
     ON movies.id_mk9h8_genres = genres.id
-    INNER JOIN mk9h8_language AS LANGUAGE
+    INNER JOIN mk9h8_language AS language
     ON movies.id_mk9h8_language = language.id
-    INNER JOIN mk9h8_reference AS REFERENCE
+    INNER JOIN mk9h8_reference AS reference
     ON movies.id_mk9h8_reference = reference.id
     INNER JOIN mk9h8_nationality AS nationality
     ON movies.id_mk9h8_nationality = nationality.id

@@ -9,3 +9,5 @@ $directors = new directors();
 
 $movie->id = $_GET['id'];
 $movieDetails = $movie->getMoviesDetails();
+
+
