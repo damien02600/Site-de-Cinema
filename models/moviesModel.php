@@ -86,4 +86,30 @@ class movies extends database
     $queryResult = $queryExecute->fetch(PDO::FETCH_OBJ);
     return $queryResult;
   }
+
+  public function modifyMovie() 
+  {
+    $query = 'UPDATE  mk9h8_movies
+    SET title_vo = :title_vo, title_vf = :title_vf, synopsis = :synopsis, releaseDate = :releaseDate
+    ,duration = :duration, picture = :picture,id_mk9h8_genres = :id_mk9h8_genres
+    ,id_mk9h8_language = :id_mk9h8_language, id_mk9h8_reference = :id_mk9h8_reference
+    ,id_mk9h8_nationality = :id_mk9h8_nationality, id_mk9h8_directors = :id_mk9h8_directors
+    WHERE id = :id';
+
+$queryExecute = $this->db->prepare($query);
+$queryExecute->bindValue(':title_vo', $this->title_vo, PDO::PARAM_STR);
+$queryExecute->bindValue(':title_vf', $this->title_vf, PDO::PARAM_STR);
+$queryExecute->bindValue(':synopsis', $this->synopsis, PDO::PARAM_STR);
+$queryExecute->bindValue(':releaseDate', $this->releaseDate, PDO::PARAM_STR);
+$queryExecute->bindValue(':duration', $this->duration, PDO::PARAM_STR);
+$queryExecute->bindValue(':picture', $this->picture, PDO::PARAM_STR);
+$queryExecute->bindValue(':id_mk9h8_genres', $this->id_mk9h8_genres, PDO::PARAM_STR);
+$queryExecute->bindValue(':id_mk9h8_language', $this->id_mk9h8_language, PDO::PARAM_STR);
+$queryExecute->bindValue(':id_mk9h8_reference', $this->id_mk9h8_reference, PDO::PARAM_STR);
+$queryExecute->bindValue(':id_mk9h8_nationality', $this->id_mk9h8_nationality, PDO::PARAM_STR);
+$queryExecute->bindValue(':id_mk9h8_directors', $this->id_mk9h8_directors, PDO::PARAM_STR);
+$queryExecute->bindValue(':id', $this->id, PDO::PARAM_INT);
+return $queryExecute->execute();
 }
+  }
+

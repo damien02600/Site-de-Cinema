@@ -30,7 +30,7 @@ require_once 'includes/header.php';
                 <p>Directeur : <?= $movieDetails->directorsName ?></p>
             </div>
         </div>
-        <a href="#"><button type="button" class="btn btn-primary">Modifier</button></a>
+        <a href="./modifyMovie.php"><button type="button" class="btn btn-primary">Modifier</button></a>
         <a href="#"><button type="button" class="btn btn-danger">Suppression</button></a>
     </div>
 </div>
