@@ -11,22 +11,32 @@ require_once 'controllers/getMovieDetailController.php';
 require_once 'includes/header.php';
 ?>
 
-<div class="container">
-
-<p><?= $movieDetails->title_vo?></p>
-<p><?= $movieDetails->titre_vf?></p>
-<p><?= $movieDetail->picture?></p>
-<p><?= $movieDetail->synopsis?></p>
-<p><?= $movieDetail->id_mk9h8_reference?></p>
-<p><?= $movieDetail->releaseDate?></p>
-<p><?= $movieDetail->duration?></p>
-<p><?= $movieDetail->id_mk9h8_genres?></p>
-<p><?= $movieDetail->id_mk9h8_language?></p>
-<p><?= $movieDetail->id_mk9h8_nationality?></p>
-<p><?= $movieDetail->id_mk9h8_directors?></p>
-
-
+<div class="container pt-5">
+    <div class="row">
+        <div class="col-lg-3 col-sm-12">
+            <img src="<?= $movieDetails->picture ?>" alt="">
+        </div>
+        <div class="col-lg-9 col-sm-12">
+            <h1><?= $movieDetails->title_vf ?></h1>
+            <h3><?= $movieDetails->title_vo ?></h3>
+            <div>
+                <p><?= $movieDetails->synopsis ?></p>
+                <p><?= $movieDetails->referenceName ?></p>
+                <p> Date de sortie : <?= $movieDetails->releaseDate ?></p>
+                <p>Durée : <?= $movieDetails->duration ?></p>
+                <p>Genre : <?= $movieDetails->genresName ?></p>
+                <p>Version disponible : <?= $movieDetails->languageName ?></p>
+                <p>Nationalité : <?= $movieDetails->nationalityName ?></p>
+                <p>Directeur : <?= $movieDetails->directorsName ?></p>
+            </div>
+        </div>
+        <a href="#"><button type="button" class="btn btn-primary">Modifier</button></a>
+        <a href="#"><button type="button" class="btn btn-danger">Suppression</button></a>
+    </div>
 </div>
+
+
+
 
 
 <?php require_once 'includes/footer.php'; ?>

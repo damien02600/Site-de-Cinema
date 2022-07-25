@@ -1,8 +1,16 @@
 /* .row.no-gutter { margin-left: 0; margin-right: 0; } */
-body{
-    background-color: black;
+body {
+  background-color: black;
 }
-li{
-    list-style:none ;
-    
-    }
+
+li {
+  list-style: none;
+
+}
+
+.genre {
+  position: absolute;
+  top: 20%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+}

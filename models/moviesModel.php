@@ -52,8 +52,10 @@ class movies extends database
   // Cette requete permet d'afficher le titre et la photo du film dans la page d'accueil
   public function getMoviesList()
   {
-    $query = 'SELECT title_vf, picture 
-  FROM mk9h8_movies ';
+    $query = 'SELECT movies.id AS idForMovie, title_vf, picture, genre.name AS genreName
+    FROM mk9h8_movies AS movies
+    INNER JOIN  mk9h8_genres AS genre
+    ON movies.id_mk9h8_genres = genre.id';
 
     $queryExecute = $this->db->query($query);
     $queryResult = $queryExecute->fetchAll(PDO::FETCH_OBJ);
